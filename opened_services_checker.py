@@ -1,5 +1,6 @@
 import sys
 import socket
+import subprocess
 
 if len(sys.argv) != 2:
     print(f"Usage: python3 {sys.argv[0]} <ip>")
@@ -23,13 +24,13 @@ services = {
     3389: "RDP"
 }
 
+
 for port, service in services.items():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(1)
 
-    result = sock.connect_ex((ip, port))
+	result = subprocess.run(
+		["nc", "-z", ip, str(port)])
 
-    if result == 0:
-        print(f"{service} ({port}) OPEN")
-
-    sock.close()
+	if result.returncode == 0:
+        	print(f"{service} ({port}) OPEN")
+	else:
+		print(f"{service} ({port}) CLOSED")
