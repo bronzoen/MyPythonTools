@@ -7,7 +7,7 @@ if len(sys.argv) != 2:
 
 ip = sys.argv[1]
 
-result = subprocess.run(["ping", "-c", "4", ip])
+result = subprocess.run(["ping", "-c", "4", ip],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 
 if result.returncode == 0:
     print(f"{ip} is UP")
