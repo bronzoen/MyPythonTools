@@ -8,7 +8,8 @@ questions = [
     ("sV", "Version Detection"),
     ("O", "OS Detection"),
     ("Pn", "Skip Host Discovery"),
-    ("T4", "Faster Scan")
+    ("T4", "Faster Scan"),
+    ("sC", "Script Scan")
 ]
 
 for flag, description in questions:
