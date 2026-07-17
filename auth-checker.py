@@ -18,10 +18,15 @@ for line in lines:
         continue
 
     if "password" in line.lower():
-        print(f"[PASSWORD] {line}")
-
+        if "accepted" in line.lower():
+                print(f"[PASSWORD] {line} (ACCEPTED)")
+        else:
+                print(f"[PASSWORD] {line}")
     elif "publickey" in line.lower():
-        print(f"[PUBLIC KEY] {line}")
+        if "accepted" in line.lower():
+                print(f"[PUBLIC KEY] {line} (ACCEPTED)")
+        else:
+                print(f"[PUBLIC KEY] {line}")
 
     elif "anonymous" in line.lower():
         print(f"[ANONYMOUS] {line}")
